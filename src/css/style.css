@@ -1,0 +1,423 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fg: #fff;
+  --bg: #0b0f17;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bd: rgba(255, 255, 255, 0.1);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+/* bg */
+.blob {
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #337cff55, #0000);
+  filter: blur(80px);
+  animation: float 12s infinite ease-in-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.blob:nth-child(1) {
+  left: 5%;
+  top: 10%;
+  animation-duration: 15s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(2) {
+  left: 80%;
+  top: 15%;
+  animation-duration: 18s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(3) {
+  left: 10%;
+  top: 50%;
+  animation-duration: 20s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(4) {
+  left: 75%;
+  top: 60%;
+  animation-duration: 16s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(5) {
+  left: 15%;
+  top: 85%;
+  animation-duration: 22s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(6) {
+  left: 70%;
+  top: 80%;
+  animation-duration: 14s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(7) {
+  left: 45%;
+  top: 40%;
+  animation-duration: 19s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(8) {
+  left: 50%;
+  top: 5%;
+  animation-duration: 17s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+.blob:nth-child(9) {
+  left: 40%;
+  top: 90%;
+  animation-duration: 21s;
+  background: radial-gradient(circle, #337cff55, #0000);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -15px) scale(1.1) rotate(90deg);
+  }
+  50% {
+    transform: translate(-15px, 20px) scale(0.9) rotate(180deg);
+  }
+  75% {
+    transform: translate(10px, 10px) scale(1.05) rotate(270deg);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--card-bd);
+  position: relative;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px 0;
+}
+
+h2 {
+  color: var(--fg);
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+section::before {
+  content: attr(class);
+  display: block;
+  text-align: center;
+  color: #8ab4f8;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 0;
+  margin: 0 0 40px 0;
+  position: relative;
+  z-index: 1;
+}
+header h1 {
+  font-size: 32px;
+  color: gray;
+  width: 100%;
+}
+header span {
+  display: block;
+  color: #ceccc6;
+}
+
+nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  color: var(--fg);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 14px;
+  min-width: 120px;
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+nav a,
+nav a::before,
+nav a::after {
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease,
+    color 0.3s ease, max-width 0.5s ease, height 0.3s ease, top 0.3s ease;
+}
+
+/* ef-1 */
+.effect-1 a::before,
+.effect-1 a::after {
+  content: "";
+  opacity: 0;
+  display: inline-block;
+}
+.effect-1 a::before {
+  content: "[";
+  margin-right: 10px;
+  transform: translateX(20px);
+}
+.effect-1 a::after {
+  content: "]";
+  margin-left: 10px;
+  transform: translateX(-20px);
+}
+
+.effect-1 a:hover::before,
+.effect-1 a:hover::after,
+.effect-1 a:focus-visible::before,
+.effect-1 a:focus-visible::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---- */
+
+/* ef-2 */
+.effect-2 a {
+  --h: 44px;
+  line-height: var(--h);
+  perspective: 1000px;
+  color: var(--fg);
+}
+.effect-2 a span {
+  position: relative;
+  display: inline-block;
+  padding: 0 14px;
+  background: #2195de;
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+  transition: transform 0.28s ease;
+  border-radius: 6px;
+}
+@supports (transform-style: preserve-3d) {
+  .effect-2 a span::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: #0965a0;
+    transform: rotateX(-90deg);
+    transform-origin: 50% 0;
+    border-radius: 6px;
+  }
+}
+.effect-2 a:hover span,
+.effect-2 a:focus-visible span {
+  transform: rotateX(90deg) translateY(calc(var(--h) * -0.5));
+}
+@supports (transform-style: preserve-3d) {
+  .effect-2 a:hover span::before,
+  .effect-2 a:focus-visible span::before {
+    background: #28a2ee;
+  }
+}
+/* ---- */
+
+/* ef-3 */
+
+.effect-3 a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.effect-3 a::after {
+  --u: 4px;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - var(--u));
+  height: var(--u);
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.effect-3 a:hover::after,
+.effect-3 a:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ---- */
+/* ef-4 */
+
+.effect-4 a {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 10px;
+}
+
+.effect-4 a::after {
+  --u: 1px;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - var(--u));
+  height: var(--u);
+  background: #fff;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.effect-4 a:hover::after,
+.effect-4 a:focus-visible::after {
+  height: 5px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- */
+/* ef-5 */
+.effect-5 a {
+  --hi: 1em;
+  line-height: var(--hi);
+  overflow: hidden;
+  padding: 0 4px;
+  text-decoration: none;
+  color: var(--fg);
+  display: inline-block;
+}
+.effect-5 a span {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+.effect-5 a span::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  font-weight: 700;
+}
+.effect-5 a:hover span,
+.effect-5 a:focus-visible span {
+  transform: translateY(-100%);
+}
+/* --- */
+/* ef-6 */
+.effect-6 a {
+  --th: 2px;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--fg);
+  overflow: hidden;
+}
+.effect-6 a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: var(--th);
+  background: #fff;
+
+  transition: top 0.3s ease;
+}
+.effect-6 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--th);
+  height: var(--th);
+  background: #fff;
+  transition: height 0.3s ease;
+}
+.effect-6 a:hover::before,
+.effect-6 a:focus-visible::before {
+  top: calc(100% - var(--th));
+}
+.effect-6 a:hover::after,
+.effect-6 a:focus-visible::after {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  h1 {
+    font-size: 2em;
+  }
+}
